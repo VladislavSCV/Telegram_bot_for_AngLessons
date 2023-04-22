@@ -1,19 +1,21 @@
 using System;
 using System.Diagnostics;
+using System.Diagnostics.Tracing;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
-
+using System.Collections.Generic;
 class TgBot
 {
     public static async Task Run()
     {
-        var botClient = new TelegramBotClient("TOKEN for Developers!!!");
+        var botClient = new TelegramBotClient("5605005510:AAGs2nRz5pzdd_CGqGDYAHzf6nqJVWHrqiw");
 
         using CancellationTokenSource cts = new();
 
@@ -95,7 +97,7 @@ class TgBot
                 case "Quest":
                     Message message10212111 = await botClient.SendTextMessageAsync(
             chatId: chatId,
-            text: $"FINISH HIM!!!",
+            text: $"GOOD!!!",
             cancellationToken: cancellationToken);
                     Message sentMessage12 = await botClient.SendTextMessageAsync(
         chatId: chatId,
@@ -145,7 +147,7 @@ class TgBot
                 case "/start":
                     Message message0 = await botClient.SendTextMessageAsync(
                     chatId: chatId,
-                    text: $"Hello! This bot will help you to learn English! Learn the rule and practice the test!",
+                    text: "Hello! This bot will help you to learn English! Learn the rule and practice the test! \n\n Привет! Этот бот поможет вам выучить английский язык! Изучите новую тему и практикуйтесь на тестах!",
                     cancellationToken: cancellationToken);
                     break;
                 case "/command2":
@@ -257,6 +259,20 @@ class TgBot
                     $"\n https://wordwall.net/embed/d6ef00bf52c54bf69fa4152e8265e801?themeId=45&templateId=3&fontStackId=0",
                     cancellationToken: cancellationToken);
                     break;
+                case "/command11":
+                    Random rnd = new Random();
+                    
+                    List<string> words =new List<string>() { "class-класс", "variable-переменная", "example-пример", "folder-папка", "property-свойство", "versatile-многофункциональный, универсальный", "maintenance-поддержка", "explanation-объяснение", "experience-опыт, случай", "theme-тема", "separate-отдельный, разделять", "bundle-пакет", "feature-характеристика, особенность, функция", "esponse-ответ, реакция", "in particular-в частности", "chapter-глава", "simple-простой", "precise-точный, четкий", "current-текущий, действующий", "useless-бесполезный", "allow-разрешать, допускать", "fiddle-играть", "perform-выполнять", "explicitly-явно", "especially-особенно, главным образом", "previous-предыдущий", "thoroughly-тщательно, полно", "scheme-схема, план", "field-поле, область", "necessary-необходимый", "therefore-поэтому", "string-строка", "definition-определение", "implement-реализация, внедрение" };
+                    string randsror = words[rnd.Next(0, words.Count)];
+                    Message message511 = await botClient.SendTextMessageAsync(
+                    chatId: chatId,
+                    text:"Я предлагаю изучить слово: " + randsror,
+                    cancellationToken: cancellationToken);
+                    break;
+
+
+
+
                 case "/command9":
                     async void Listen0()
                     {
